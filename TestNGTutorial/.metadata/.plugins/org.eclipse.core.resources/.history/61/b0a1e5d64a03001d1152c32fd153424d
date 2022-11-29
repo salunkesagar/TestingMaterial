@@ -1,0 +1,17 @@
+package E2E.Demo;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+public class AddPlace extends base{
+	
+	@Test
+	public void addPlace() throws IOException
+	{
+		String uri = getURI();
+		System.out.println(uri);
+		
+	}
+
+}

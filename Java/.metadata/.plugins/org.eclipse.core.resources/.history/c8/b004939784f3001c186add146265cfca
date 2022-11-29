@@ -1,0 +1,10 @@
+package funcionOverloading_OverRiding;
+
+public class parentClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

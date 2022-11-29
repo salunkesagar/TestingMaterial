@@ -1,0 +1,24 @@
+package IB.E2EAssignment;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+
+public class ValidateTitle extends base {
+	
+	@Test
+	
+	public void getTitle() throws IOException
+	{
+		driver = initializeDriver();
+		driver.get("https://www.baldorfood.com/");
+		HomePage hp = new HomePage(driver);
+		String text = hp.Title().getText();
+		System.out.println(text);
+		
+		
+	}
+
+}

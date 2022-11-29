@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-26T16:06:32 IST" name="Default suite" finished-at="2022-08-26T16:06:56 IST" duration-ms="23434">
+    <groups>
+    </groups>
+    <test started-at="2022-08-26T16:06:32 IST" name="Default test" finished-at="2022-08-26T16:06:56 IST" duration-ms="23434">
+      <class name="IB.E2EAssignment.LoginPage">
+        <test-method is-config="true" signature="stepUp()[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:32 IST" name="stepUp" finished-at="2022-08-26T16:06:39 IST" duration-ms="6851" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stepUp -->
+        <test-method signature="Homepage(java.lang.String)[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:40 IST" name="Homepage" data-provider="keywordName" finished-at="2022-08-26T16:06:43 IST" duration-ms="3463" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SearchKeyword]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Homepage -->
+        <test-method signature="Homepage(java.lang.String)[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:43 IST" name="Homepage" data-provider="keywordName" finished-at="2022-08-26T16:06:47 IST" duration-ms="3995" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Orange Juice]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Homepage -->
+        <test-method signature="Homepage(java.lang.String)[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:47 IST" name="Homepage" data-provider="keywordName" finished-at="2022-08-26T16:06:51 IST" duration-ms="3572" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Apple]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Homepage -->
+        <test-method signature="Homepage(java.lang.String)[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:51 IST" name="Homepage" data-provider="keywordName" finished-at="2022-08-26T16:06:55 IST" duration-ms="4353" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Banana]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Homepage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:IB.E2EAssignment.LoginPage@644baf4a]" started-at="2022-08-26T16:06:55 IST" name="tearDown" finished-at="2022-08-26T16:06:56 IST" duration-ms="319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- IB.E2EAssignment.LoginPage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

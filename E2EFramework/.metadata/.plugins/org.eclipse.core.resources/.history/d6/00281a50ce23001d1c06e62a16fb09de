@@ -1,0 +1,19 @@
+package IB.E2EAssignment;
+
+public class ExtentReportNG {
+	
+	public getReportObject()
+	{
+		String path = System.getProperty("user+dir")+"\\reports\\index.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setReportName("Baldorfood Automation");
+		reporter.config().setDocumentTitle("Test Results");
+		
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(reporter);
+		extent.setSystemInfo("SAGAR", "QA");
+		return extent;
+
+	}
+
+}

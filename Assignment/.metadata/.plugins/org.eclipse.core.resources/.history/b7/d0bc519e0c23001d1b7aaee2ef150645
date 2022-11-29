@@ -1,0 +1,64 @@
+package Baldorfood.Assignment1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WriteExcel {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar Salunke\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.baldorfood.com/");
+		driver.findElement(By.xpath("//input[@id='query-input']")).sendKeys("Orange Juice");
+		driver.findElement(By.xpath("//form[@id='suggestions-form']//input[@type='submit']")).click();
+		WebElement obj = driver.findElement(By.xpath("//span[contains(text(),'Sponsored')]"))	;
+		String producName = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h3[1]/a[1]")).getText();
+		System.out.println(producName);
+		String productQuantity = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]/span[1]")).getText();
+		System.out.println(productQuantity);
+		String ProductCode=obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[2]")).getText();
+		System.out.println(ProductCode);
+		String Advertiser = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]/a[1]")).getText();
+		System.out.println(Advertiser);
+		
+		
+		FileInputStream fis=new FileInputStream("C:\\Users\\Sagar Salunke\\Desktop\\Search.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.createSheet();
+		Row row = sheet.createRow(1);
+		Cell cell = row.createCell(1);
+		cell.setCellValue(producName);
+		
+		Cell cell1 = row.createCell(2);
+		cell1.setCellValue(productQuantity);
+		
+		Cell cell2 = row.createCell(3);
+		cell2.setCellValue(ProductCode);
+		
+		Cell cell3 = row.createCell(4);
+		cell3.setCellValue(Advertiser);
+		
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\Sagar Salunke\\Desktop\\Search.xlsx");
+		workbook.write(fos);
+		fos.close();
+		
+		driver.close();
+		
+		
+	}
+
+}

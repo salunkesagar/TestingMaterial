@@ -1,0 +1,64 @@
+package actions;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class MouseHover {
+	
+	
+	@Test
+	public void getMouseHover() throws IOException
+	{
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+	//	Actions a = new Actions(driver);
+		//WebElement mouse = driver.findElement(By.xpath("//button[text()='Mouse Hover']"));
+		//a.moveToElement(mouse).moveToElement(driver.findElement(By.xpath("//a[@href='#top']"))).click().build().perform();
+	//	a.moveToElement(mouse).contextClick().build().perform();
+		
+		driver.findElement(By.cssSelector(".btn-style[id='opentab']")).click();
+		Set<String> w= driver.getWindowHandles();
+		Iterator<String>it = w.iterator();
+		String parent= it.next();
+		String child= it.next();
+		driver.switchTo().window(child);
+		
+		
+		//driver.navigate().to("https://www.rahulshettyacademy.com/");
+	WebElement ss = driver.findElement(By.cssSelector(".col-md-6 h2 span strong"));
+	System.out.println(ss.getText());
+	File source =ss.getScreenshotAs(OutputType.FILE);
+	FileUtils.copyFile(source, new File("logo.png"));
+	driver.switchTo().window(parent);
+	String text = driver.findElement(By.cssSelector(".switch-tab")).getText();
+	System.out.println(text);
+	driver.switchTo().frame(driver.findElement(By.id("courses-iframe")));
+	String h = driver.findElement(By.xpath("//a[text()='Home']")).getText();
+	System.out.println(h);
+	driver.switchTo().defaultContent();
+	Boolean t = driver.findElement(By.cssSelector("#displayed-text")).isDisplayed();
+	System.out.println(t);
+	driver.findElement(By.cssSelector("alertbtn")).click();
+	driver.switchTo().alert().accept();
+	driver.quit();
+		
+		
+
+	}
+
+}

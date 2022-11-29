@@ -1,0 +1,43 @@
+package IB.E2EAssignment;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class base {
+	
+	public WebDriver driver;
+	
+	public WebDriver initializeDriver() throws IOException
+	{
+		Properties prop = new Properties();
+		
+		FileInputStream fis = new FileInputStream("D:\\E2EFramework\\E2EAssignment\\src\\main\\java\\IB\\E2EAssignment\\data.properties");
+		
+		prop.load(fis);
+		String BrowserName = prop.getProperty("browser");
+		
+		if(BrowserName == "chrome")
+		{
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar Salunke\\chromedriver.exe");
+			driver = new ChromeDriver();
+			//driver.get("https://www.baldorfood.com/");
+
+		}
+		else if(BrowserName == "firefox")
+		{
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Sagar Salunke\\geckodriver.exe");
+			driver = new FirefoxDriver();
+			//driver.get("https://www.baldorfood.com/");
+		}
+		
+		return driver;
+		
+	}	
+
+}

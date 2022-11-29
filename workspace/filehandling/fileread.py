@@ -1,0 +1,7 @@
+f1 = open('myfile.txt','r')
+print(str(f1.read()))
+f1.close()
+print('#'*10)
+f2 = open('myfile.txt','r')
+print(str(f2.readline()))
+f2.close()

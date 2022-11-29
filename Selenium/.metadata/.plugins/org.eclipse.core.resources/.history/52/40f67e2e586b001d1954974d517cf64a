@@ -1,0 +1,14 @@
+package javaprogram;
+
+public class SubString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String  a ="aabbb";
+		System.out.println(a.substring(0));
+		System.out.println(a.substring(0,2));
+
+	}
+
+}

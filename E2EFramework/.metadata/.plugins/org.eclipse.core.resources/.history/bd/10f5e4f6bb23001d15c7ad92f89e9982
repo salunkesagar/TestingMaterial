@@ -1,0 +1,23 @@
+package IB.E2EAssignment;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+
+public class LoginPage extends base {
+	
+	@Test
+	public void Homepage() throws IOException
+	{
+		driver = initializeDriver();
+		driver.get("https://www.baldorfood.com/");
+		HomePage hp = new HomePage(driver);
+		hp.Search();
+		hp.searchBox().sendKeys("Orange Juice");
+		
+		driver.close();
+	}
+
+}

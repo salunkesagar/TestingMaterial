@@ -1,0 +1,48 @@
+package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SponsoredPage {
+	
+	WebDriver driver;
+	public SponsoredPage(WebDriver driver)
+	{
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		
+	}
+	
+	@FindBy(xpath = "//span[contains(text(),'Sponsored')]")
+		WebElement sponsored;
+	
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h3[1]/a[1]")
+	WebElement productName;
+	
+	@FindBy(xpath ="/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]/span[1]")
+	WebElement prductQuantity;
+	
+	
+	
+	public WebElement Sponsored()
+	{
+		return sponsored;
+		
+	}
+	
+	public WebElement ProductName()
+	{
+		return productName;
+		
+	}
+	public WebElement ProductQuantity()
+	{
+		return prductQuantity;
+		
+	}
+	
+	
+
+}

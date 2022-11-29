@@ -1,0 +1,11 @@
+package IB.E2EAssignment;
+
+public class base {
+	
+	public void initializeDriver()
+	{
+		Properties prop = new Properties();
+		
+	}
+
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="IB.E2EAssignment.Listeners"></listener>
+</listeners>
+  <test  name="Test">
+    <classes>
+     <class name="IB.E2EAssignment.LoginPageExcel"/>
+     </classes>
+  </test> <!-- Test -->
+     <test  name="Test">
+    <classes>
+      <class name="IB.E2EAssignment.LoginPage"/>
+       </classes>
+  </test>
+  <test  name="Test">
+    <classes>
+      <class name="IB.E2EAssignment.WriteExcel"/>
+      </classes>
+  </test>
+   <test  name="Test">
+    <classes>
+      <class name="IB.E2EAssignment.BakerySweetnerPage"/>
+      </classes>
+  </test>
+  <test  name="Test">
+    <classes>
+      <class name="IB.E2EAssignment.ValidateTitle"/>
+     
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

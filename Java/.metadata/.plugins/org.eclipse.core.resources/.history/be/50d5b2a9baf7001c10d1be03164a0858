@@ -1,0 +1,19 @@
+package practiseProgram;
+
+public class RevSentense {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s ="Info is beans";
+		String[] s1 = s.split("\\s");
+		for(int i=s.length()-1;i>=0;i--)
+		{
+			System.out.println(s1[i] + " ");
+			
+		}
+				
+				
+				
+			}
+
+}

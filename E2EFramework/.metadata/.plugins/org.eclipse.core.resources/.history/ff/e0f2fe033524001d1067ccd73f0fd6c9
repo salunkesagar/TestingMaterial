@@ -1,0 +1,22 @@
+package IB.E2EAssignment;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import pageObject.BakeryPage;
+
+public class BakerySweetnerPage extends base {
+	
+	@Test
+	public void hoverData() throws IOException
+	{
+		driver = initializeDriver();
+		driver.get("https://www.baldorfood.com/");
+		
+		BakeryPage bp = new BakeryPage(driver);
+		
+		
+	}
+
+}

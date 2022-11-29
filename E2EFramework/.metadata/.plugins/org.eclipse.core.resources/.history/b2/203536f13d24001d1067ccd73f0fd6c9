@@ -1,0 +1,58 @@
+package IB.E2EAssignment;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class base {
+
+	public WebDriver driver;
+
+	// public static WebDriverWait wait;
+
+	public WebDriver initializeDriver() throws IOException {
+		Properties prop = new Properties();
+
+		FileInputStream fis = new FileInputStream(
+				"D:\\E2EFramework\\E2EAssignment\\src\\main\\java\\IB\\E2EAssignment\\data.properties");
+
+		prop.load(fis);
+		String BrowserName = prop.getProperty("browser");
+		System.out.println(BrowserName);
+
+		// wait = new WebDriverWait(this.driver,Duration.ofSeconds(10));
+
+		if (BrowserName.equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar Salunke\\chromedriver.exe");
+			driver = new ChromeDriver();
+			// driver.get("https://www.baldorfood.com/");
+
+		} else if (BrowserName.equals("firefox")) {
+			System.setProperty("webdriver.gecko.driver", "C:\\Users\\Sagar Salunke\\geckodriver.exe");
+			driver = new FirefoxDriver();
+			// driver.get("https://www.baldorfood.com/");
+		}
+
+		return driver;
+
+	}
+	
+	public void getScreenshotPath()
+	{
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		String destination = System.getProperty("user.dir")+"\\reports\\index.html";
+		
+	}
+
+}

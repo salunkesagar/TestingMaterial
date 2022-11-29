@@ -1,0 +1,70 @@
+package Baldorfood.Assignment1;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+
+public class DataDriven1 {
+	@Test(dataProvider="keywordName")
+	public void getKeyword(String keyName)
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar Salunke\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.baldorfood.com/");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='query-input']")));
+		WebElement searchBox = driver.findElement(By.xpath("//input[@id='query-input']"));
+		searchBox.sendKeys(keyName);
+	}
+	
+	
+	
+	@DataProvider(name="keywordName")
+	public Object[] getExcelData() throws IOException
+	{
+		Object[] data = getData("SearchKeyword") ;
+		return data;
+	}
+	
+	public String[][] getExcelData(String fileName, String sheetName) {
+        String[][] arrayExcelData = null;
+      
+            FileInputStream fs = new FileInputStream(fileName);
+            XSSFWorkbook wb = new XSSFWorkbook(fs);
+            XSSFSheet sh = wb.getSheet(sheetName);
+
+            int totalNoOfCols = sh.;
+            int totalNoOfRows = sh.getRows();
+            
+            arrayExcelData = new String[totalNoOfRows-1][totalNoOfCols];
+            
+            for (int i= 1 ; i < totalNoOfRows; i++) {
+
+                for (int j=0; j < totalNoOfCols; j++) {
+                    arrayExcelData[i-1][j] = sh.getCell(j, i).getContents();
+                }
+
+            }
+        
+        return arrayExcelData;
+    }
+}

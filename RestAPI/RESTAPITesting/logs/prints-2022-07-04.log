@@ -1,0 +1,5 @@
+22:53:28.413 [main] INFO  RESTAPITest.RESTAPITesting.basic - 28abcd76781f828d316d31f0e07a2d9e
+22:53:28.420 [main] INFO  RESTAPITest.RESTAPITesting.basic - Place id extracted from response
+22:53:28.906 [main] INFO  RESTAPITest.RESTAPITesting.basic - 70 Summer walk, USA
+23:55:26.182 [main] INFO  RESTAPITest.RESTAPITesting.basic - Base URL is opened
+23:55:28.968 [main] INFO  RESTAPITest.RESTAPITesting.basic - {"status":"OK","place_id":"a269f3cc016accf5444e93a17ce552a0","scope":"APP","reference":"39d5d823cc4a79b4e45155fbd38778f539d5d823cc4a79b4e45155fbd38778f5","id":"39d5d823cc4a79b4e45155fbd38778f5"}

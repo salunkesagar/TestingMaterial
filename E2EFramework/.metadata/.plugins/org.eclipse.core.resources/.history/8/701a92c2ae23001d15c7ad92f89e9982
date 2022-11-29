@@ -1,0 +1,26 @@
+package IB.E2EAssignment;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class base {
+	
+	public void initializeDriver() throws IOException
+	{
+		Properties prop = new Properties();
+		
+		FileInputStream fis = new FileInputStream("D:\\E2EFramework\\E2EAssignment\\src\\main\\java\\IB\\E2EAssignment\\data.properties");
+		
+		prop.load(fis);
+		String BrowserName = prop.getProperty("browser");
+		
+		if(BrowserName == "chrome")
+		{
+			
+		}
+		
+	}	
+
+}

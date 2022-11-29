@@ -1,0 +1,13 @@
+package Resources;
+
+import org.testng.annotations.BeforeTest;
+
+public class ExtentReportNG {
+	@BeforeTest
+	
+	public void configExtent() 
+	{
+		ExtentSparkReporter reporter = new ExtentSparkReporter()
+	 
+ }
+}

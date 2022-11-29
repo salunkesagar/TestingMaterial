@@ -1,0 +1,41 @@
+package actions;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class MouseHover {
+	
+	
+	@Test
+	public void getMouseHover()
+	{
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		Actions a = new Actions(driver);
+		WebElement mouse = driver.findElement(By.xpath("//button[text()='Mouse Hover']"));
+		//a.moveToElement(mouse).moveToElement(driver.findElement(By.xpath("//a[@href='#top']"))).click().build().perform();
+		a.moveToElement(mouse).contextClick().build().perform();
+		
+		driver.findElement(By.cssSelector(".btn-style[id='opentab']")).click();
+	WebElement ss = driver.findElement(By.cssSelector(".col-md-6 h2 span strong"));
+	File source =ss.getScreenshotAs(OutputType.FILE);
+	FileUtils.copyFile(ss, new File("logo.png"));
+	driver.close();
+		
+		
+
+	}
+
+}

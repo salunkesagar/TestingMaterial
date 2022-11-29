@@ -1,0 +1,151 @@
+package Baldorfood.Assignment1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import objectRepository.HomePage;
+import objectRepository.SponsoredPage;
+
+public class WriteExcel {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sagar Salunke\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.baldorfood.com/");
+		HomePage hp = new HomePage(driver);
+		hp.searchBox().sendKeys("Orange Juice");
+		hp.Search().click();
+		SponsoredPage sp = new SponsoredPage(driver);
+		WebElement obj = sp.Sponsored();
+		
+		
+		WebElement pn = sp.ProductName();
+		String productName = pn.getText();
+		System.out.println(productName);
+		WebElement pq = sp.ProductQuantity();
+		String productQuantity = pq.getText();
+		System.out.println(productQuantity);
+		WebElement pc = sp.ProductCode();
+		String ProductCode = pc.getText();
+		System.out.println(ProductCode);
+		
+		WebElement pn1 = sp.ProductName1();
+		String productName1 = pn1.getText();
+		System.out.println(productName1);
+		WebElement pq1 = sp.ProductQuantity1();
+		String productQuantity1 = pq1.getText();
+		System.out.println(productQuantity1);
+		WebElement pc1 = sp.ProductCode1();
+		String ProductCode1 = pc1.getText();
+		System.out.println(ProductCode1);
+		
+		
+		WebElement pn2 = sp.ProductName2();
+		String productName2 = pn2.getText();
+		System.out.println(productName2);
+		WebElement pq2 = sp.ProductQuantity2();
+		String productQuantity2 = pq2.getText();
+		System.out.println(productQuantity2);
+		WebElement pc2 = sp.ProductCode2();
+		String ProductCode2 = pc2.getText();
+		System.out.println(ProductCode2);
+		
+		
+		WebElement ad = sp.Advertiser();
+		String Advertiser = ad.getText();
+		System.out.println(Advertiser);
+		
+		
+		
+		
+		
+		//String productQuantity = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[3]/span[1]")).getText();
+		
+		//String ProductCode=obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[2]")).getText();
+		
+		//String Advertiser = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/span[1]/a[1]")).getText();
+		
+		
+		//String productName1 = obj.findElement(By.xpath("//div[@id='product_ju18g']//div[@class='product-title-and-sku']//div[2]//h3[1]//a[1]")).getText();
+		//System.out.println(productName1);
+	//	String productQuantity1 = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[3]/span[1]")).getText();
+	//	System.out.println(productQuantity1);
+	//	String ProductCode1=obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/span[2]")).getText();
+	//	System.out.println(ProductCode1);
+		
+		//String productName2 = obj.findElement(By.xpath("//div[@id='product_ju11a']//div[@class='product-title-and-sku']//div[2]//h3[1]//a[1]")).getText();
+		//System.out.println(productName2);
+		//String productQuantity2 = obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/span[3]/span[1]")).getText();
+		//System.out.println(productQuantity2);
+		//String ProductCode2=obj.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/span[2]")).getText();
+		//System.out.println(ProductCode2);
+		
+		
+		
+		
+		FileInputStream fis=new FileInputStream("C:\\Users\\Sagar Salunke\\Desktop\\Search.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet("TestData");
+		Row row = sheet.createRow(1);
+		Cell cell = row.createCell(1);
+		cell.setCellValue(productName);
+		
+		Cell cell1 = row.createCell(2);
+		cell1.setCellValue(productQuantity);
+		
+		Cell cell2 = row.createCell(3);
+		cell2.setCellValue(ProductCode);
+		
+		Cell cell3 = row.createCell(4);
+		cell3.setCellValue(Advertiser);
+		
+		Row row1 = sheet.createRow(2);
+		Cell cell21 = row1.createCell(1);
+		cell21.setCellValue(productName1);
+		
+		Cell cell22 = row1.createCell(2);
+		cell22.setCellValue(productQuantity1);
+		
+		Cell cell23 = row1.createCell(3);
+		cell23.setCellValue(ProductCode1);
+		
+		Cell cell24 = row1.createCell(4);
+		cell24.setCellValue(Advertiser);
+		
+		Row row2 = sheet.createRow(3);
+		Cell cell31 = row2.createCell(1);
+		cell31.setCellValue(productName2);
+		
+		Cell cell32 = row2.createCell(2);
+		cell32.setCellValue(productQuantity2);
+		
+		Cell cell33 = row2.createCell(3);
+		cell33.setCellValue(ProductCode2);
+		
+		Cell cell34 = row2.createCell(4);
+		cell34.setCellValue(Advertiser);
+		
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\Sagar Salunke\\Desktop\\Search.xlsx");
+		workbook.write(fos);
+		fos.close();
+		
+		driver.close();
+		
+		
+	}
+
+}

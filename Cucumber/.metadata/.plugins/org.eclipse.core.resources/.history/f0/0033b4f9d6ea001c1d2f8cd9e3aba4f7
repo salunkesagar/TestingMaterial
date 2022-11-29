@@ -1,0 +1,16 @@
+Feature: Application Login;
+
+
+Scenario: Home Page default Login
+Given User is on neebanking page
+When User enters the credentials with username "abc" and password "123"
+Then Home Page should get displayed
+And All cards get displayed
+
+
+
+Scenario: Home Page default Login
+Given User is on neebanking page
+When User enters the credentials with username "abc" and password "123"
+Then Home Page should get displayed
+And All cards get displayed

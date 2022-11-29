@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;practiseProgram.StringReverseNew&apos; to &apos;DuplicateChar&apos;&#x0D;&#x0A;- Original project: &apos;JavaTraining&apos;&#x0D;&#x0A;- Original element: &apos;practiseProgram.StringReverseNew&apos;&#x0D;&#x0A;- Renamed element: &apos;practiseProgram.DuplicateChar&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;StringReverseNew&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;practiseProgram{StringReverseNew.java[StringReverseNew" matchStrategy="1" name="DuplicateChar" qualified="false" references="true" similarDeclarations="false" stamp="1656502352873" textual="false" version="1.0"/>
+</session>

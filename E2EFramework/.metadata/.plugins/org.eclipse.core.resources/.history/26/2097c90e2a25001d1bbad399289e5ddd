@@ -1,0 +1,50 @@
+package IB.E2EAssignment;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+
+public class LoginPageExcel extends base {
+	public WebDriver driver;
+	
+	@BeforeTest
+	public void stepUp() throws IOException {
+		driver = initializeDriver();
+		// driver.get("https://www.baldorfood.com/");
+		driver.get(prop.getProperty("url"));
+	}
+
+	@Test
+
+	public void sendData() throws IOException {
+		ExelData as = new ExelData();
+		ArrayList<String> data = as.getData("SearchKeyword");
+
+
+
+
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='query-input']")));
+		HomePage hp = new HomePage(driver);
+
+		for (int i = 0; i <= 3; i++) {
+			hp.searchBox().sendKeys(data.get(i));
+			hp.Search().click();
+			hp.searchBox().clear();
+		}	
+		//driver.quit();
+
+	}
+	
+	@AfterTest
+
+	public void tearDown() {
+		driver.quit();
+	}
+
+}

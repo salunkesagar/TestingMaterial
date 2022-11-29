@@ -1,0 +1,17 @@
+package IB.E2EAssignment;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+public class LoginPage extends base {
+	
+	@Test
+	public void Homepage() throws IOException
+	{
+		driver = initializeDriver();
+		driver.get("https://www.baldorfood.com/");
+		driver.close();
+	}
+
+}

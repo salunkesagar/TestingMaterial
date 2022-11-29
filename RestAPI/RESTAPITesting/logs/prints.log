@@ -1,0 +1,5 @@
+10:46:41.085 [main] INFO  RESTAPITest.RESTAPITesting.basic - dace9dcafba65850f06425b0b69a1942
+10:46:41.092 [main] INFO  RESTAPITest.RESTAPITesting.basic - Place id extracted from response
+10:46:41.814 [main] INFO  RESTAPITest.RESTAPITesting.basic - 70 Summer walk, USA
+10:47:19.710 [main] INFO  RESTAPITest.RESTAPITesting.basic - Base URL is opened
+10:47:23.332 [main] INFO  RESTAPITest.RESTAPITesting.basic - 70 Summer walk, USA

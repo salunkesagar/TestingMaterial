@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+
+ <test thread-count="5" name="GoogleMapAPI">
+ <groups>
+ <run>
+ <include name="Check1"/>
+ </run>
+ </groups>
+ 
+    <classes>
+    
+      <class name="TestNGDemo.AddPlace"/>
+      <class name="TestNGDemo.UpdatePlace"/>
+      <class name="TestNGDemo.GetPlace"/>
+      <class name ="TestNGDemo.AddBook"/>
+      
+    </classes>
+  </test> 
+ 
+</suite> <!-- Suite -->

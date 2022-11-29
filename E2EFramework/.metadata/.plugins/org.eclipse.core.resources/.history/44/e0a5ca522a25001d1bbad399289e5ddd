@@ -1,0 +1,113 @@
+package IB.E2EAssignment;
+
+import org.testng.annotations.Test;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+
+public class LoginPage extends base {
+	
+	public WebDriver driver;
+	
+	@BeforeTest
+	public void stepUp() throws IOException {
+		driver = initializeDriver();
+		// driver.get("https://www.baldorfood.com/");
+		driver.get(prop.getProperty("url"));
+	}
+
+	@Test(dataProvider = "keywordName")
+
+	public void Homepage(String keyName) throws IOException {
+
+
+		HomePage hp = new HomePage(driver);
+		// hp.Search().sendKeys(keyName);
+		// hp.searchBox().click();
+		hp.searchBox().sendKeys(keyName);
+		hp.Search().click();
+
+		//driver.quit();
+	}
+
+	@DataProvider(name = "keywordName")
+	public Object[] getExcelData() throws IOException {
+		Object[] data = getData("SearchKeyword");
+		return data;
+	}
+
+	public Object[] getData(String testcaseName) throws IOException {
+
+		// Object[] a=new Object[] {};
+		ArrayList<String> a = new ArrayList<String>();
+		Object[] objArr = null;
+
+		FileInputStream fis = new FileInputStream("C:\\Users\\Sagar Salunke\\Desktop\\Search.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+		int sheets = workbook.getNumberOfSheets();
+		for (int i = 0; i < sheets; i++) {
+			if (workbook.getSheetName(i).equalsIgnoreCase("test1")) {
+				XSSFSheet sheet = workbook.getSheetAt(i);
+
+				Iterator<Row> rows = sheet.iterator();
+				Row firstrow = rows.next();
+				Iterator<Cell> ce = firstrow.cellIterator();
+				int k = 0;
+				int coloumn = 0;
+				while (ce.hasNext()) {
+					Cell value = ce.next();
+
+					if (value.getStringCellValue().equalsIgnoreCase("Testcase")) {
+						coloumn = k;
+
+					}
+
+					k++;
+				}
+				// System.out.println(coloumn);
+
+				while (rows.hasNext()) {
+
+					Row r = rows.next();
+
+					if (r.getCell(coloumn).getStringCellValue().equalsIgnoreCase(testcaseName)) {
+
+						Iterator<Cell> cv = r.cellIterator();
+						while (cv.hasNext()) {
+							Cell c = cv.next();
+
+							a.add(c.getStringCellValue());
+							objArr = a.toArray();
+
+						}
+					}
+
+				}
+
+			}
+		}
+		return objArr;
+
+	}
+	
+	@AfterTest
+
+	public void tearDown() {
+		driver.quit();
+	}
+
+}
